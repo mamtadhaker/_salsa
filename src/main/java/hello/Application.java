@@ -21,34 +21,34 @@ public class Application {
 	public CommandLineRunner demo(UserRepository repository) {
 		return (args) -> {
 			// save a couple of users
-			repository.save(new User("Jack", "Bauer"));
-			repository.save(new User("Chloe", "O'Brian"));
-			repository.save(new User("Kim", "Bauer"));
-			repository.save(new User("David", "Palmer"));
-			repository.save(new User("Michelle", "Dessler"));
+			// repository.save(new User("Jack", "Bauer"));
+			// repository.save(new User("Chloe", "O'Brian"));
+			// repository.save(new User("Kim", "Bauer"));
+			// repository.save(new User("David", "Palmer"));
+			// repository.save(new User("Michelle", "Dessler"));
 
-			// fetch all users
-			log.info("Users found with findAll():");
-			log.info("-------------------------------");
-			//for (User user : repository.findAll()) {
-			//	log.info(user.toString());
-			//}
-      log.info("");
+			// // fetch all users
+			// log.info("Users found with findAll():");
+			// log.info("-------------------------------");
+			// for (User user : repository.findAll()) {
+			// 	log.info(user.toString());
+			// }
+      // log.info("");
 
-			// fetch an individual User by ID
-			/*User user = repository.findOne(1L);
-			log.info("user found with findOne(1L):");
-			log.info("--------------------------------");
-			log.info(user.toString());
-      log.info("");
+			// // fetch an individual User by ID
+			// User user = repository.findOne(1L);
+			// log.info("user found with findOne(1L):");
+			// log.info("--------------------------------");
+			// log.info(user.toString());
+      // log.info("");
 
-			// fetch users by last name
-			log.info("User found with findByLastName('Bauer'):");
-			log.info("--------------------------------------------");
-			for (User bauer : repository.findByLastName("Bauer")) {
-				log.info(bauer.toString());
-			}
-      log.info("");*/
+			// // fetch users by last name
+			// log.info("User found with findByLastName('Bauer'):");
+			// log.info("--------------------------------------------");
+			// for (User bauer : repository.findByLastName("Bauer")) {
+			// 	log.info(bauer.toString());
+			// }
+      // log.info("");
 		};
 	}
 

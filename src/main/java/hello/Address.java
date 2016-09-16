@@ -6,9 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
-import org.codehaus.jackson.annotate.JsonIgnore;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "addresses")
 public class Address {
   
   @Id
@@ -18,11 +19,16 @@ public class Address {
   private String city;
   private String state;
   private String country;
+  
   @ManyToOne
-	@JoinColumn(name="userId", nullable=false)
- 	private Long userId;
+	@JoinColumn(name = "user_id", nullable = false)
+ 	private User user;
 
   protected Address() {}
+
+  public Long getId() {
+    return this.id;
+  }
 
   public void setStreet(String street) {
     this.street = street;
@@ -56,13 +62,13 @@ public class Address {
     return this.country;
   }
 
-  public void setUserId(Long userId) {
-    this.userId = userId;
+  public void setUser(User user) {
+    this.user = user;
   }
 
-   public Long getUserId() {
-    return this.userId;
-  }
+  // public User getUser() {
+  //   return this.user;
+  // }
 
   @Override
   public String toString() {

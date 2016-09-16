@@ -31,17 +31,7 @@ public class UserController {
   
   @RequestMapping(method = RequestMethod.POST)
   public User create(@RequestBody User user) {
-    	log.info("User :");
-			log.info("--------------------------------");
-			log.info(user.toString());
-    	log.info("Address :");
-			log.info("--------------------------------");
-			log.info(user.getAddresses().toString());
-  
-    //List<Address> address = addressRepository.save(user.getAddress());
     user = repository.save(user);
-    // address.setUserId(user.getId());
-    // addressRepository.save(address);
     return user;
   }
 

@@ -7,8 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.*;
 import javax.persistence.CascadeType;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -17,7 +19,7 @@ public class User {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Address> addresses;
 
     protected User() {}
@@ -57,12 +59,15 @@ public class User {
 
     @Override
     public String toString() {
-        if(this.getAddresses() != null){
-            return "\n User:[id: "+id+" firstName: "+firstName+" lastName: "+lastName+" address: "+addresses;
-        }
-        else {
-            return "\n User:[id: "+id+" firstName: "+firstName+" lastName: "+lastName;
-        } 
+        // if(this.getAddresses() != null){
+        //     return "\n User:[id: "+id+" firstName: "+firstName+" lastName: "+lastName+" address: "+addresses;
+        // }
+        // else {
+        //     return "\n User:[id: "+id+" firstName: "+firstName+" lastName: "+lastName;
+        // }
+        return String.format(
+                "Customer[id: %d, firstName: '%s', lastName: '%s']",
+                id, firstName, lastName);
     }
 
 }

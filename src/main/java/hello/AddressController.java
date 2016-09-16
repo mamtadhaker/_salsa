@@ -23,22 +23,16 @@ public class AddressController {
   private static final Logger log = LoggerFactory.getLogger(Application.class);
              
   @RequestMapping("/addresses")
-  @ResponseBody
   public List<Address> index() {
     return repository.findAll();
   }
 
-  @RequestMapping(value = "/user/{userId}/address", method = RequestMethod.POST)
-
+  @RequestMapping(value = "/users/{userId}/addresses", method = RequestMethod.POST)
   public boolean updateAddress(@PathVariable("userId") Long userId, @RequestBody Address address){
     if(userRepository.exists(userId)) {
       User user = userRepository.findOne(userId);
-        address.setUserId(userId);
-        List<Address> addresses = new ArrayList<Address>();
-        //address = repository.save(address);
-        addresses.add(address);
-        user.setAddresses(addresses);
-        user = userRepository.save(user);
+        address.setUser(user);
+        repository.save(address);
         return true;
       }
       return false;
