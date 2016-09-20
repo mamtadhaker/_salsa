@@ -8,19 +8,35 @@ import javax.persistence.OneToMany;
 import java.util.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+ 
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Size(min=2, max=30)
     private String firstName;
+    
+    @NotNull
+    @Size(min=2, max=30)
     private String lastName;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Address> addresses;
+
+    @NotEmpty
+    @Email
+    private String email;
 
     protected User() {}
 
@@ -57,6 +73,13 @@ public class User {
          this.addresses = addresses;
     }
 
+    public void setEmail(String email){
+        this.email=email;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
     @Override
     public String toString() {
         // if(this.getAddresses() != null){
