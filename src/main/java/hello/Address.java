@@ -7,9 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+<<<<<<< HEAD
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+>>>>>>> origin/master
 
 @Entity
 @Table(name = "addresses")
@@ -35,6 +39,7 @@ public class Address {
   @Size(min=2, max=60)
   private String country;
   
+  @JsonIgnore
   @ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
  	private User user;
@@ -81,9 +86,9 @@ public class Address {
     this.user = user;
   }
 
-  // public User getUser() {
-  //   return this.user;
-  // }
+  public User getUser() {
+    return this.user;
+  }
 
   @Override
   public String toString() {
