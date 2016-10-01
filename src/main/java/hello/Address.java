@@ -7,13 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-<<<<<<< HEAD
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-=======
 import com.fasterxml.jackson.annotation.JsonIgnore;
->>>>>>> origin/master
 
 @Entity
 @Table(name = "addresses")
